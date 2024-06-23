@@ -39,6 +39,25 @@ async def login(form: OAuth2PasswordRequestForm = Depends()):
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
+@router.post("/register", status_code=201)
+async def register(usuario: user_entity.User):
+    if db_client.users.find_one({"nickname": usuario.nickname}) or db_client.users.find_one({"correo": usuario.correo}):
+        raise HTTPException(status_code=400, detail="Nombre de usuario o correo ya registrado")
+    user_dict = dict(usuario)
+    del user_dict["id"]
+    user_dict["contraseña"] = crypt_context.hash(user_dict["contraseña"])
+    db_client.users.insert_one(user_dict)
+    access_token = jwt.encode(
+        {
+            "sub": usuario.nickname,
+            "exp": datetime.utcnow() + timedelta(hours=ACCESS_TOKEN_DURATION)
+        },
+        SECRET_KEY,
+        algorithm=ALGORITHM
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
+
+
 @router.get("/users/me")
 async def read_users_me(user: user_entity.User = Depends(current_user)):
     return user
