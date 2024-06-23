@@ -1,9 +1,9 @@
 import React, { createContext, useEffect, useState } from "react";
 
-export const UserContext = React.createContext();
+export const UserContext = createContext();
 
 export const UserProvider = (props) => {
-    const [token, setToken] = React.useState(localStorage.getItem('token'));
+    const [token, setToken] = useState(localStorage.getItem('token'));
 
     useEffect(() => {
         const fetchUser = async () => {

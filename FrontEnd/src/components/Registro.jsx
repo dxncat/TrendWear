@@ -9,8 +9,6 @@ function Registro() {
     const [confirmContraseña, setConfirmContraseña] = useState('')
     const [pic, setPic] = useState('')
     const [correo, setCorreo] = useState('')
-    const [direccion, setDireccion] = useState('')
-    const [numero, setNumero] = useState()
     const [esTienda, setEsTienda] = useState(false)
     const [desactivado, setDesactivado] = useState(false)
     const [mensajeError, setMensajeError] = useState('')
@@ -20,7 +18,7 @@ function Registro() {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nickname, contraseña, pic, correo, direccion, numero, es_tienda: esTienda, desactivado })
+            body: JSON.stringify({ nickname, contraseña, pic, correo})
         }
 
         console.log(requestOptions)
@@ -48,7 +46,7 @@ function Registro() {
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Sign in to your account
+                    Crea tu cuenta
                 </h2>
             </div>
 
@@ -99,37 +97,6 @@ function Registro() {
                             />
                         </div>
                     </div>
-
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                            Direccion
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                type="text"
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={direccion}
-                                onChange={(e) => setDireccion(e.target.value)}
-                            />
-                        </div>
-                    </div>
-
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                            Número de Teléfono
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                type="number"
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={numero}
-                                onChange={(e) => setNumero(e.target.value)}
-                            />
-                        </div>
-                    </div>
-
 
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">

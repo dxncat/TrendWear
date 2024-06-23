@@ -6,10 +6,10 @@ class User(BaseModel):
     id: str = None
     nickname: str
     contraseña: str = None,
-    pic: str = None
+    pic: str
     correo: str
-    direccion: str | None
-    numero: int | None
+    direccion: str | None = None
+    numero: int | None = None
     es_tienda: bool = False
     desactivado: bool = False
 
