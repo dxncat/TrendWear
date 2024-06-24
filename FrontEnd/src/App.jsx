@@ -2,11 +2,11 @@ import { useState, useEffect, useContext } from "react"
 import Header from "./components/Header"
 import Registro from "./components/Registro"
 import InicioS from "./components/InicioS"
-import { UserContext } from "./context/userContext"
+import { TokenContext } from "./context/TokenContext"
 
 function App() {
   const [mensaje, setMensaje] = useState('')
-  const [token, setToken] = useContext(UserContext)
+  const [token, setToken] = useContext(TokenContext)
 
   const getMensajeBienvenida = async () => {
     const requestOptions = {

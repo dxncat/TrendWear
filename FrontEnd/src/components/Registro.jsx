@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { UserContext } from '../context/userContext'
+import { TokenContext } from '../context/TokenContext'
 import MensajeError from './MensajeError'
 
 function Registro() {
@@ -9,10 +9,8 @@ function Registro() {
     const [confirmContraseña, setConfirmContraseña] = useState('')
     const [pic, setPic] = useState('')
     const [correo, setCorreo] = useState('')
-    const [esTienda, setEsTienda] = useState(false)
-    const [desactivado, setDesactivado] = useState(false)
     const [mensajeError, setMensajeError] = useState('')
-    const [, setToken] = useContext(UserContext)
+    const [, setToken] = useContext(TokenContext)
 
     const submitRegistro = async () => {
         const requestOptions = {

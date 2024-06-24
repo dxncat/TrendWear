@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 
-export const UserContext = createContext();
+export const TokenContext = createContext();
 
-export const UserProvider = (props) => {
+export const TokenProvider = (props) => {
     const [token, setToken] = useState(localStorage.getItem('token'));
 
     useEffect(() => {
@@ -22,8 +22,8 @@ export const UserProvider = (props) => {
     }, [token])
 
     return (
-        <UserContext.Provider value={[ token, setToken ]}>
+        <TokenContext.Provider value={[ token, setToken ]}>
             {props.children}
-        </UserContext.Provider>
+        </TokenContext.Provider>
     )
 }

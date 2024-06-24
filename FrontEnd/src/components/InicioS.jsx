@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { UserContext } from '../context/userContext'
+import { TokenContext } from '../context/TokenContext'
 import MensajeError from './MensajeError'
 
 function InicioS() {
@@ -7,7 +7,7 @@ function InicioS() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [mensajeError, setMensajeError] = useState('')
-    const [, setToken] = useContext(UserContext)
+    const [, setToken] = useContext(TokenContext)
 
     const submitInicioS = async () => {
         const requestOptions = {
