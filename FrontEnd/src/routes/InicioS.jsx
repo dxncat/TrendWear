@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { TokenContext } from '../context/TokenContext'
-import MensajeError from './MensajeError'
+import MensajeError from '../components/MensajeError'
 
 function InicioS() {
 
